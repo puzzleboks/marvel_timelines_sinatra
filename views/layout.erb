@@ -1,14 +1,133 @@
-<html>
-  <head>
-    <title>Marvel Timelines Sinatra</title>
-    <link rel="stylesheet" href="/style.css">
-  </head>
-  <body>
-    <h1>Timelines</h1>
-    <nav>
-      <a href="/songs">Songs</a>
-      <a href="/artists">Artists</a>
-    </nav>
-    <%= yield %>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marvel Timelines</title>
+  <%= include_gon %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <img class="eventFirstIssue" src="" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <div class="container">
+    <div class="page-header">
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="heroImg col-md-4">
+          <h1 id="timeline"></h1>
+          <form class="heroForm">
+            <input type="text" name="text" class="form-control input-lg heroInput" placeholder="Type in the name of a Marvel superhero" />
+          </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+    </div>
+    <ul class="timeline">
+      <li class="timeline_li">
+        <div class="timeline-badge"><i class="glyphicon glyphicon-hand-left"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Secret Wars</h4>
+            <h5 class="timeline-date">Publication of first issue: 1984</h5>
+          </div>
+          <div class="timeline-body">
+            <p>The most powerful heroes and villains in the Marvel Universe square off on Battleword with the victor promised their greatest dreams and desires! Writer Jim Shooter and artists Mike Zeck and Bob Layton introduce the Beyonder in a 12-issue event featuring the Avengers, the X-Men, the Fantastic Four, Spider-Man, Magneto, Doctor Doom and more!</p>
+          </div>
+          <!-- <button class="btn btn-default btn-xs" type="button" data-toggle="modal" href="#myModal1">Cover</button> -->
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-badge"><i class="glyphicon glyphicon-hand-right"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Secret Wars II</h4>
+          </div>
+          <div class="timeline-body">
+            <p>The omnipotent Beyonder comes to Earth to better understand the concept of desire as the heroes assemble to combat the threat he poses.</p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline_li">
+        <div class="timeline-badge"><i class="glyphicon glyphicon-hand-left"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Fall of the Mutants</h4>
+          </div>
+          <div class="timeline-body">
+            <p>The X-Men battled the Adversary in Dallas, and X-Factor clashed with the Horsemen of Apocalypse in New York, while the New Mutants confronted the insane Ani-Mator on Paradise Island.</p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-badge"><i class="glyphicon glyphicon-hand-right"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Acts of Vengeance!</h4>
+          </div>
+          <div class="timeline-body">
+            <p>Loki sets about convincing the super-villains of Earth to attack heroes other than those they normally fight in an attempt to destroy the Avengers to absolve his guilt over inadvertently creating the team in the first place.</p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline_li">
+        <div class="timeline-badge"><i class="glyphicon glyphicon-hand-left"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Infinity Gauntlet</h4>
+          </div>
+          <div class="timeline-body">
+            <p>When the Mad Titan, Thanos, acquires the all-powerful Infinity Gauntlet and erases half the universe, the survivors must attempt to topple an omnipotent opponent! Led by the resurrected Adam Warlock and aided by primal cosmic forces, Earth's protectors enter cosmic warfare in a six-issue event written by Jim Starlin and featuring the art of George Perez and Ron Lim!</p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-badge"><i class="glyphicon glyphicon-hand-right"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Infinity War</h4>
+          </div>
+          <div class="timeline-body">
+            <p>The Magus, the purged, evil side of Adam Warlock believed to have been dead, has returned in order to collect the Infinity Gems and recreate the Infinity Gauntlet itself. He sent evil doppelgangers of Marvel's superheroes to attack and usurp the originals. Thanos, exiled since his defeat during the Infinity Gauntlet event, learned of the Magus' plans and set out to aid Adam Warlock and the heroes in defending the universe.</p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline_li">
+        <div class="timeline-badge"><i class="glyphicon glyphicon-hand-left"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Onslaught</h4>
+          </div>
+          <div class="timeline-body">
+            <p>The evil within Professor Charles Xavier combines with the power of Magneto to create Onslaught, perhaps the greatest threat ever to the Marvel Universe! It begins with the X-Men, but before the end, the Avengers, the Fantastic Four and the rest of Earth's greatest heroes will know sacrifice before victory!</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <%= yield %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="/script.js"></script>
+</body>
 </html>
