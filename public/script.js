@@ -5,13 +5,13 @@ $(document).ready(function(){
       $('.heroInput').attr({'placeholder': 'Type in the name of a Marvel superhero'});
 
       // create the various components for the ajax url (keys, input value, timestamp, hash)
-      end_pt = "https://gateway.marvel.com/" 
+      end_pt = "http(s)://gateway.marvel.com/"
       pubKey = "e687d607d622b25c31d6ae38f2f42597";
       var name = event.target.value;
       my_ts = gon.my_ts;
       my_hash = gon.my_hash;
       // gets character by name (from input)
-      var url = "https://gateway.marvel.com/v1/public/characters?name=" + name + "&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash
+      var url = "http(s)://gateway.marvel.com/v1/public/characters?name=" + name + "&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash
 
       // ajax call to marvel using the above url
       $.ajax({
