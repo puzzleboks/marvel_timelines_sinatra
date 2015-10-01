@@ -5,13 +5,13 @@ $(document).ready(function(){
       $('.heroInput').attr({'placeholder': 'Type in the name of a Marvel superhero'});
 
       // create the various components for the ajax url (keys, input value, timestamp, hash)
-      end_pt = "http://gateway.marvel.com/"
+      end_pt = "https://gateway.marvel.com/"
       pubKey = "e687d607d622b25c31d6ae38f2f42597";
       var name = event.target.value;
       my_ts = gon.my_ts;
       my_hash = gon.my_hash;
       // gets character by name (from input)
-      var url = "http://gateway.marvel.com/v1/public/characters?name=" + name + "&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash
+      var url = "https://gateway.marvel.com/v1/public/characters?name=" + name + "&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash
 
       // ajax call to marvel using the above url
       $.ajax({
@@ -24,14 +24,14 @@ $(document).ready(function(){
         if (response.data.results.length!==0){
           var heroId = response.data.results[0].id;
           // gets list of events as filtered through a character's id
-          var eventsUrl = "http://gateway.marvel.com/v1/public/characters/" + heroId + "/events?orderBy=-startDate" + "&limit=" + limit + "&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash;
+          var eventsUrl = "https://gateway.marvel.com/v1/public/characters/" + heroId + "/events?orderBy=-startDate" + "&limit=" + limit + "&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash;
           if (response.data.results[0].thumbnail!==null){
             var myImgPath = response.data.results[0].thumbnail.path + "/landscape_incredible.jpg";
             $('.heroImg').css({'background-image': 'url(' + myImgPath + ')', 'background-repeat': 'no-repeat', 'background-position': '50% 50%'});
           }
         }else{
           // dummy image
-          var myImgPath = "http://dummyimage.com/464x261/3b3b3b/ffffff.png&text=No+image+available";
+          var myImgPath = "https://dummyimage.com/464x261/3b3b3b/ffffff.png&text=No+image+available";
           $('.heroInput').attr({'placeholder': 'Sorry, try a different superhero'});
           $('.heroImg').css({'background-image': 'url(' + myImgPath + ')', 'background-repeat': 'no-repeat', 'background-position': '50% 50%'});
         }
@@ -85,7 +85,7 @@ $(document).ready(function(){
     var button = $(event.relatedTarget)
     var eventId = button.data('eventid')
     var modal = $(this)
-    var url = "http://gateway.marvel.com/v1/public/events/" + eventId + "?&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash;
+    var url = "https://gateway.marvel.com/v1/public/events/" + eventId + "?&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash;
 
     // ajax call for getting thumbnail of a specific event
     $.ajax({
@@ -101,7 +101,7 @@ $(document).ready(function(){
 
     // Ajax call for getting a cover image of the first issue for that event
 
-    // var url = "http://gateway.marvel.com/v1/public/events/" + eventId + "/comics?issueNumber=1&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash;
+    // var url = "https://gateway.marvel.com/v1/public/events/" + eventId + "/comics?issueNumber=1&ts=" + my_ts + "&apikey=" + pubKey + "&hash=" + my_hash;
     // $.ajax({
     //   url: url,
     //   type: "get",
@@ -109,7 +109,7 @@ $(document).ready(function(){
     // }).done(function(res){
     //   if(res.data.results.length === 0){
     //     modal.find('.modal-title').html("");
-    //     modal.find('.modal-body img').attr('src', "http://dummyimage.com/300x450/ebebeb/000000.png&text=No+image+available")
+    //     modal.find('.modal-body img').attr('src', "https://dummyimage.com/300x450/ebebeb/000000.png&text=No+image+available")
     //   }else{
     //     modal.find('.modal-title').html(res.data.results[0].title);
     //     modal.find('.modal-body img').attr('src', res.data.results[0].thumbnail.path + "/portrait_uncanny.jpg")
