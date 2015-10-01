@@ -60,7 +60,7 @@ $(document).ready(function(){
             newDate = format(new Date(startDate));
             data.push(startDate);
             entityIds[r2d[i].title] = r2d[i].id;
-            desc = r2d[i].description.replace("â€™","'");
+            desc = r2d[i].description.replace(/â€™/g,"'").replace(/â€”/g,"–").replace(/â€“/g,"–");
             $('.timeline').append(
               "<li class='timeline_li'><div class='timeline-badge'><i class='glyphicon glyphicon-hand-left'></i></div><div class='timeline-panel'><div class='timeline-heading'><h4 class='timeline-title'>" + r2d[i].title + "</h4><h5 class='timeline-date'>First issue: " + newDate + "</h5></div><div class='timeline-body'><p>" + desc + "</p></div><button class='btn btn-default btn-xs' type='button' data-eventid='" + r2d[i].id + "' data-toggle='modal' href='#myModal1'>Image</button></div></li>"
             )
