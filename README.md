@@ -8,12 +8,13 @@ A simple application that interacts with the Marvel API. Search for your favorit
 
 ## Technologies
 
-### Front-end
+#### Front-end
 * HTML5/CSS3
 * JavaScript/jQuery/AJAX
 * Bootstrap
 * Marvel API
-### Back-end
+
+#### Back-end
 * Rack
 * Sinatra
 
