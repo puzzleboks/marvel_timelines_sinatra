@@ -58,9 +58,7 @@ $(document).ready(function(){
           // loop that creates the html list of events, using data from the response
           for (var i = 0; i < res2.data.count; i++){
             startDate = r2d[i].start.slice(0,10) + "T00:00:00Z";
-            // newDate = new Date(startDate);
             newDate = format(new Date(startDate));
-            console.log(startDate)
             data.push(startDate);
             entityIds[r2d[i].title] = r2d[i].id;
             desc = r2d[i].description.replace(/â€™/g,"'").replace(/â€”/g,"–").replace(/â€“/g,"–");
